@@ -1,6 +1,6 @@
 # PixelCNN pour la génération d'images
 
-Le data set que nous allons étudier est fashion MNIQT, un dataset contenant des images 28x28 en noir et blanc représentant différents types d'habits, par exemple chaussures, pulls 
+Le data set que nous allons étudier est fashion MNIST, un dataset contenant des images 28x28 en noir et blanc représentant différents types d'habits, par exemple chaussures, pulls 
 t-shirt pantalons etc. 
 
 # Etude des parametres
