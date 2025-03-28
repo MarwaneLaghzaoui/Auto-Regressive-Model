@@ -8,9 +8,9 @@ Dans ce TP nous allons expliquer en détails le fonctionnement du modèle PixelC
 
 </p>
 
-<p align="center">
+
 ![Exemple de sortie](./assets/autoregressive.png)
-</p>
+
 <p align="center">
   Figure 1 : Schéma d’un model autorégressif classique type RNN
 </p>
