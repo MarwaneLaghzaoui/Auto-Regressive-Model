@@ -8,9 +8,9 @@ Dans ce TP nous allons expliquer en détails le fonctionnement du modèle PixelC
 
 </p>
 
-
+<p align="center">
 ![Exemple de sortie](./assets/autoregressive.png)
-
+</p>
 <p align="center">
   Figure 1 : Schéma d’un model autorégressif classique type RNN
 </p>
@@ -57,6 +57,12 @@ J’ai décidé d’appuyer sur cette ligne car elle permet de choisir aléatoir
 Finalement, avec un modèle entrainé, une trentaine de fois, nous avons des résultats qui commencent à etre satisfaisant. Néanmoins cette méthode n’est pas la plus efficace pour la génération d’images surtout lorsqu’on est limité en itérations.
 </p>
 
+![Exemple de sortie](./assets/resultats.png)
+
+<p align="center">
+Figure 4 : Résultats de générations de vêtements avec PixelCNN
+</p>
+<br>
 
 ## Conclusion
 
