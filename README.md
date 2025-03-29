@@ -8,6 +8,9 @@ Dans ce TP nous allons expliquer en détails le fonctionnement du modèle PixelC
 
 </p>
 
+<p align="center">
+  <img src="./assets/autoregressive.pngg" />
+</p>
 
 ![Exemple de sortie](./assets/autoregressive.png)
 
