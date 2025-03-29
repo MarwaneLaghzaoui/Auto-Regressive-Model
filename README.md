@@ -12,8 +12,6 @@ Dans ce TP nous allons expliquer en détails le fonctionnement du modèle PixelC
   <img src="./assets/autoregressive.png" />
 </p>
 
-![Exemple de sortie](./assets/autoregressive.png)
-
 <p align="center">
   Figure 1 : Schéma d’un model autorégressif classique type RNN
 </p>
@@ -25,8 +23,10 @@ Dans ce TP nous allons expliquer en détails le fonctionnement du modèle PixelC
 Dans le code présent dans ce github nous étudions un modèle bien précis, le PixelCNN. Ce dernier est un type de modèle auto régressive centrée sur la génération d’images. Le but est de générer pixels par pixels, au même titre qu’une valeur de notre série temporelle pour le RNN. Pour ce faire nous devons nous assurer de respecter les règles des auto régressives modèles. Tout d’abord, il faut que chaque pixel créé ne prenne pas en compte uniquement le ou les pixels précédemment créés. C’est ce qu’on va appeler le masque de convolution. Ensuite, il faut faire face aux problèmes d’initialisation. En effet, si on utilise simplement 1 filtre à notre image, on donne donc, pour chaque première itération, un pixel réel au modèle. Dans notre cas, ça peut être problématique. Si on boucle plusieurs fois durant l’entraînement le modèle peut généraliser en apprenant l’image sur laquelle il s’entraîne à cause de l’initialisation. Cela aura comme conséquence de bon résultat en train et de mauvais en validation. Pour éviter cela, on divise en deux masques, A et B. Le masque A est pour l’initialisation, on ne prend ni en compte le pixel actuel (central), ni les suivants. Il est présent dans la première couche de notre modèle. Pour les autres couches on utilise le masque B qui prend en compte le pixel central et ceux passés. Il bloque uniquement la visibilité sur les pixels futurs non générés. Grâce à ses masques donnant accès ou non à certains pixels, on se retrouve avec un comportement similaire à une fenêtre glissante.
 </p>
 
-![Exemple de sortie](./assets/masques.png)
 
+<p align="center">
+  <img src="./assets/masques.png" />
+</p>
 <p align="center">
 Figure 2 : Schema de la repartition des masques
 </p>
@@ -46,8 +46,10 @@ Une fois que tout est prêt, on peut passer à l’entraînement. On passe N foi
 Pour tester notre modèle PixelCNN nous utilisons le dataset fashionMNIST qui fournit des petites images pixelisées de vêtements. Pour évaluer notre modèle, on vient donc initialiser les tenseurs à 0, on met le modèle en mode évaluation et on commence par itérer sur chaque pixel à l’aide d’une double boucle imbriquée. Le modèle nous prédit la distribution des valeurs possibles qu’on transforme en probabilités. Enfin, on assigne la valeur choisie au pixel avec la ligne de code suivante.
 </p>
 
-![Exemple de sortie](./assets/code.png)
 
+<p align="center">
+  <img src="./assets/code.png" />
+</p>
 <p align="center">
 Figure 3 : Ligne de code qui assigne la valeur du nouveau pixel dans l'évaluation (création de l'image)
 </p>
@@ -59,8 +61,10 @@ J’ai décidé d’appuyer sur cette ligne car elle permet de choisir aléatoir
 <p align="justify">
 Finalement, avec un modèle entrainé, une trentaine de fois, nous avons des résultats qui commencent à etre satisfaisant. Néanmoins cette méthode n’est pas la plus efficace pour la génération d’images surtout lorsqu’on est limité en itérations.
 </p>
+<p align="center">
+  <img src="./assets/resultats.png" />
+</p>
 
-![Exemple de sortie](./assets/resultats.png)
 
 <p align="center">
 Figure 4 : Résultats de générations de vêtements avec PixelCNN
